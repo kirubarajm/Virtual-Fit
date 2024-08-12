@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat", "Raleway", sans-serif;
+}
+
+html {
+    height: 100vh;
+    font-family: "Montserrat", "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-family: "Montserrat", "Raleway", sans-serif;
+    background: url('/assets/images/background.jpg');
+    background-size: cover;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 100px;
+}
+
+.title{
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-size: 4.5em;
+    padding: 5px;
+    margin-top: 7vh;
+}
+
+.tagline {
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-size: 1.8em;
+    padding: 5px;
+    margin-top: 4vh;
+    margin-bottom: 2%;
+    color: #349E97;
+}
+
+.register-title {
+    text-align: center;
+    letter-spacing: 0.4em;
+    font-size: 45px;
+    padding: 5px;
+    padding-bottom: 0px;
+    margin-top: 20px;
+}
+
+.username-input {
+    letter-spacing: 0.1em;
+    font-size: 17px;
+    color: #fff;
+}
+
+.email-input {
+    letter-spacing: 0.1em;
+    font-size: 17px;
+    color: #fff;
+}
+
+.pass-input {
+    letter-spacing: 0.1em;
+    font-size: 17px;
+    color: #fff;
+}
+
+.submit-input {
+    letter-spacing: 0.2em;
+    font-size: 20px;
+    padding: 0;
+}
+
+.under-text{
+	text-align: center;
+    font-size: 17px;
+    color: #fff;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .title {
+        font-size: 2.5em;
+    }
+
+    .footer {
+        font-size: 13px;
+    }
+
+}

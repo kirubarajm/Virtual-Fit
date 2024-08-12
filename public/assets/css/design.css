@@ -1,0 +1,22 @@
+.design-image{
+    width: 550px;
+    height: 450px;
+}
+
+.design-image-2 {
+    height: 600px;
+}
+
+.design-card {
+    height: 650px;
+}
+ 
+.next-btn {
+    margin: 20px auto !important;
+    font-size: 1.2rem;
+}
+
+.next-btn-link {
+    margin: 20px auto !important;
+    font-size: 1.8rem;
+}

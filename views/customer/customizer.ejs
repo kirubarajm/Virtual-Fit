@@ -1,0 +1,138 @@
+<% layout('../partials/layout') -%>
+<% stylesheet('/assets/css/customizer.css') -%>
+<% script('/assets/js/customizer.js') -%>
+<% function selectorUtility(value, str){
+    if(value.toString()==str.toString()){
+        return 'selected';
+    }
+} %>
+
+<div class="page-title-area">
+    <div class="row align-items-center">
+        <div class="col-sm-6">
+            <div class="breadcrumbs-area clearfix">
+                <h4 class="page-title pull-left">Virtual Fit</h4>
+                <ul class="breadcrumbs pull-left">
+                    <li><a href="/customer">Customer</a></li>
+                    <li><a href="/customer">Home</a></li>
+                    <li><a href="/customer">Customizer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6 clearfix">
+            <div class="user-profile pull-right">
+                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Virtual Fit</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page title area end -->
+<div class="main-content-inner">
+    <div class="row">
+        <div class="col-lg-5 mt-4 p-5">
+            <div class="card">
+                <div class="card-body" style="overflow: scroll">
+
+                    <form action="/customer/order" method="POST">
+                        <div class="material">
+
+                            <br>
+                            <div class="select-container">
+                                <label for="material" class="label select-box1"><span class="label-desc">Material</span>
+                                    :</label>
+                                <select onchange=onCustChange() id="material" name="material" class="select">
+                                    <option value="0" selected="selected">Giza Cotton</option>
+                                    <option value="1">Linnen</option>
+                                    <option value="2">Cotton Lycra Blend</option>
+                                </select>
+                            </div>
+
+                            <br>
+                            <% if(isAmazon) { %>
+                                <div class="select-container d-none">
+                                    <label for="pattern" class="label select-box1"><span class="label-desc">Pattern</span>
+                                        :</label>
+                                    <select onchange=onCustChange() id="pattern" name="pattern" class="select" >
+                                        <option value="0" <%= selectorUtility(clothId, "0") %> >Berry Pink Twill</option>
+                                        <option value="1" <%= selectorUtility(clothId, "1") %> >Cocoa Checks</option>
+                                        <option value="2" <%= selectorUtility(clothId, "2") %> >Royal Blue Polka Dot</option>
+                                        <option value="3" <%= selectorUtility(clothId, "3") %> >Sunset Stripes</option>
+                                    </select>
+                                </div>
+                            <% } else { %>
+                                <div class="select-container">
+                                        <label for="pattern" class="label select-box1"><span class="label-desc">Pattern</span>
+                                            :</label>
+                                        <select onchange=onCustChange() name="pattern" id="pattern" class="select">
+                                            <option value="0">Berry Pink Twill</option>
+                                            <option value="1">Cocoa Checks</option>
+                                            <option value="2">Royal Blue Polka Dot</option>
+                                            <option value="3">Sunset Stripes</option>
+                                        </select>
+                                    </div>
+                            <% } %>
+
+                            <br>
+                            <div class="select-container">
+                                <label for="collar" class="label select-box1"><span class="label-desc">Collar
+                                        Type :</span> </label>
+                                <select onchange=onCustChange() id="collar" name="collar" class="select">
+                                    <option value="0">Spread Eagle</option>
+                                    <option value="1">Bandhgala</option>
+                                </select>
+                            </div>
+
+                            <br>
+                            <div class="select-container">
+                                <label for="cuff" class="label select-box1"><span class="label-desc">Cuff Type</span>
+                                    :</label>
+                                <select onchange=onCustChange() id="cuff" name="cuff" class="select">
+                                    <option value="0">Single Convertible</option>
+                                    <option value="1">Double Bond</option>
+                                </select>
+                            </div>
+
+                            <br>
+                            <div class="select-container">
+                                <label for="sleeve" class="label select-box1"><span class="label-desc">Sleeve
+                                        Type :</span> </label>
+                                <select onchange=onCustChange() id="sleeve" name="sleeve" class="select">
+                                    <option value="0">Full Sleeve</option>
+                                    <option value="1">Roll Up</option>
+                                    <option value="2">Half Sleeve</option>
+                                </select>
+                            </div>
+
+                            <br>
+                            <div class="select-container">
+                                <label for="pockets" class="label select-box1"><span class="label-desc">Pocket
+                                        Type :</span> </label>
+                                <select onchange=onCustChange() id="pockets" name="pocket" class="select">
+                                    <option value="0">None</option>
+                                    <option value="1">Single Angled</option>
+                                    <option value="2">Single Flap</option>
+                                    <option value="3">Double Flap</option>
+                                </select>
+                            </div>
+
+                            <br>
+                            <div class="select-container">
+                                <label for="twill" class="label select-box1"><span class="label-desc">Placket :</span> </label>
+                                <select onchange=onCustChange() id="twill" name="twill" class="select">
+                                    <option value="0">Regular</option>
+                                    <option value="1">French</option>
+                                    <option value="2">Conceled</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-info">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7 mt-4" id="output-target">
+
+        </div>
+    </div>
+</div>

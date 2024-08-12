@@ -1,0 +1,1 @@
+renderMannequin(Number($($('#trow td')[0]).text()), Number($($('#trow td')[1]).text()), Number($($('#trow td')[2]).text()), Number($($('#trow td')[3]).text()), Number($($('#trow td')[4]).text()), Number($($('#trow td')[5]).text()), Number($($('#trow td')[5]).text()));

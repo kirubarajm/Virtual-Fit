@@ -1,0 +1,131 @@
+<% layout('../partials/layout') -%>
+<% stylesheet('/assets/css/mannequin.css') -%>
+<% stylesheet('/assets/css/vieworder.css') -%>
+<% script('https://cdnjs.cloudflare.com/ajax/libs/babylonjs/3.3.0/babylon.max.js') -%>
+<% script('/assets/js/babylon.objFileLoader.js') -%>
+<% script('/assets/js/mannequin.js') -%>
+<% script('/assets/js/clientmeasurement.js') -%>
+<%
+var roundOff = (n) => {
+    const decimal = ((n * 10) % 3);
+    if (decimal >= 7) {
+      return Math.floor(n) + 1;
+    } if (decimal >= 3) {
+      return Math.floor(n) + 0.5;
+    }
+    return Math.floor(n);
+  };
+%>
+<div class="page-title-area">
+    <div class="row align-items-center">
+        <div class="col-sm-6">
+            <div class="breadcrumbs-area clearfix">
+                <h4 class="page-title pull-left">Virtual Fit</h4>
+                <ul class="breadcrumbs pull-left">
+                    <li><a href="/client/order/view">Client</a></li>
+                    <li><a href="/client/order/view">Home</a></li>
+                    <li><a href="/client/order/view">View Order</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6 clearfix">
+            <div class="user-profile pull-right">
+                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Virtual Fit</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page title area end -->
+<div class="main-content-inner">
+    <div class="row">
+        <div class="col-lg-6 mt-5 mannequinCard">
+            <div class="card ">
+                <div class="card-body">
+                    <h4 class="header-title">Mannequin</h4>
+                    <canvas id='mannequinCanvas'></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title">Body Measurements</h4>
+                    <div class="single-table">
+                        <div class="table-responsive">
+                            <table class="table text-center" id="measurementTable">
+                                <thead class="text-uppercase bg-info">
+                                    <tr class="text-white">
+                                        <th scope="col">Shirt Height</th>
+                                        <th scope="col">Shoulder</th>
+                                        <th scope="col">Hand</th>
+                                        <th scope="col">Collar</th>
+                                        <th scope="col">Chest</th>
+                                        <th scope="col">Waist</th>
+                                        <th scope="col">Hip</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="trow">
+                                        <td>
+                                            <%=roundOff(JSON.parse(measurements).shirtHeight)%>
+                                        </td>
+                                        <td>
+                                            <%=roundOff(JSON.parse(measurements).shoulder)%>
+                                        </td>
+                                        <td>
+                                            <%=roundOff(JSON.parse(measurements).hand)%>
+                                        </td>
+                                        <td>
+                                            <%=roundOff(JSON.parse(measurements).collar)%>
+                                        </td>
+                                        <td>
+                                            <%=roundOff(JSON.parse(measurements).chest)%>
+                                        </td>
+                                        <td>
+                                            <%=roundOff(JSON.parse(measurements).stomach)%>
+                                        </td>
+                                        <td>
+                                            <%=roundOff(JSON.parse(measurements).hip)%>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h4 class="header-title">User Details</h4>
+                    <div class='row mt-6'></div>
+                    <div class='row mt-3'>
+                        <div class='col-lg-3'>
+                            <div class='user-details-header'>
+                                Name :
+                            </div>
+                        </div>
+                        <div class='col-lg-3'>
+                            <%=JSON.parse(customer).username%>
+                        </div>
+                    </div>
+                    <div class='row mt-3'>
+                        <div class='col-lg-3'>
+                            <div class='user-details-header'>
+                                Phone Number :
+                            </div>
+                        </div>
+                        <div class='col-lg-3'>
+                            <%=JSON.parse(customer).mobileNumber%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center mt-3">
+        <a href='/client/order/details' class='next-btn-link'>
+            <button class="btn btn-primary btn-lg next-btn">Next  <i class='ti-arrow-right'></i></button>
+        </a>
+    </div>
+</div>
+
